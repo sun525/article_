@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--内容-->
+<div class="container" style="margin-top:76px">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;文章详情</h3>
+                </div>
+                <div class="panel-body">
+                    <h1 class="text-center">{{ art.title }}</h1>
+{#                    <div class="span" align="right"><a class="btn primary btn-success" type="button"  href="#">加入购物车</a></div>#}
+{#                    <div class="col-md-3">#}
+{#                         <img src="/static/uploads/{{art.cover}}" style="width:262px;height:300px;"#}
+{#                         class="img-responsive center-block lazy" alt="">#}
+{#                    </div>#}
+                    <div class="row" style="padding: 10px; margin: 1px;border: 1px solid dodgerblue; font: 400 40px/1.5 Helvetica, Verdana, Sans-Serif">
+
+                        {{ art.content | safe }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--内容-->
+{% endblock %}

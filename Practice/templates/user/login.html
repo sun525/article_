@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id="content" style="margin: 0 40px">
+        <h1 class="text-center">登录</h1>
+        <form class="form form-horizontal" method="post" action="/user/login/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-md-2 control-label">用户名</label>
+                <div class="col-md-5">
+                    <input class="form-control" name="username"
+                           value="{{ username }}"
+                           placeholder="输入用户名">
+                </div>
+                <div class="col-md-4">
+                    {% if errors.username %}
+                        <span style="color: red">{{ errors.username.0.message }}</span>
+                    {% else %}
+                        *长度8-12位,手机号或昵称
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">密码</label>
+                <div class="col-md-5">
+                    <input class="form-control" type="password" name="password" placeholder="输入密码">
+                </div>
+                <div class="col-md-4">
+                    {% if errors.password %}
+                        <span style="color: red">{{ errors.password.0.message }}</span>
+                    {% else %}
+                        *长度不能低于8位,只能是字母和数字
+                    {% endif %}
+                </div>
+            </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2">
+                        <button class="btn btn-primary">登录</button>
+                        <a href="/user/regist/" class="btn btn-link">没有帐号,去注册</a>
+                    </div>
+                </div>
+
+        </form>
+
+    </div>
+{% endblock %}
+
